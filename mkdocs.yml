@@ -68,7 +68,6 @@ theme:
 # Plugins
 #
 plugins:
-  - macros
   - search # must be included at the first place
   # - tags: # we have our own internal tag feature
         # tags_file: tags.md # generated links do not work
@@ -79,7 +78,7 @@ plugins:
         enable_creation_date: true
         fallback_to_build_date: true
         type: iso_date
-
+  - macros
 #
 # Extensions
 #
