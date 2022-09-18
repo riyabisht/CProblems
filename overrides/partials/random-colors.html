@@ -1,0 +1,20 @@
+{%- macro random_color(id) -%}
+    {% set colors = {
+            "dp": "var(--md-tag-color1)",
+            "greedy": "var(--md-tag-color2)",
+            "two-pointer": "var(--md-tag-color3)",
+            "binary-tree": "var(--md-tag-color4)",
+            "graph": "var(--md-tag-color5)",
+            "bfs": "var(--md-tag-color6)",
+            "dfs": "var(--md-tag-color7)",
+            "divide-and-conquer": "var(--md-tag-color8)",
+            "recursion": "var(--md-tag-color9)",
+            "backtracking": "var(--md-tag-color10)"
+        }
+    %}
+    {% if id in colors.keys() %}
+        {{- colors[id] -}}
+    {% else %}
+        {{- "var(--md-tag-color10)" -}}
+    {% endif %}
+{%- endmacro -%}
