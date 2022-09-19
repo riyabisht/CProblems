@@ -1,5 +1,5 @@
 ---
-title: Find the row with maximum 1's
+title: Find the row with maximum 1's matrix
 hide:
   - navigation
 ---
@@ -19,7 +19,11 @@ Given a boolean 2D array, where each row is sorted. Find the row with the maximu
 0 0 0 0
 ```
 
-- Output: 2
+- Output
+
+```txt
+2
+```
 
 ## Solutions
 
@@ -30,10 +34,20 @@ A simple method is to do a row-wise traversal of the matrix, count the number of
 row with maximum 1s. The time complexity of this method is O(m*n) where m is the
 number of rows and n is the number of columns in the matrix.
 
+```cpp
+{{ include_file('naive.cpp') }}
+```
+
+```txt
+{{ include_file('naive.txt') }}
+```
+
 #### Notes
 
-- Time Complexity:  O(m*n)
-- Space Complexity:  O(1)
+- Time Complexity: $O(m*n)$
+- Space Complexity:  $O(1)$
+- $m$ - no of columns of matrix
+- $n$ - no of rows of matrix
 
 ### Binary Search
 
@@ -41,12 +55,22 @@ We can do better. Since each row is sorted, we can use Binary Search to count of
 1s in each row. We find the index of first instance of 1 in each row. The count
 of 1s will be equal to total number of columns minus the index of first 1.
 
+```cpp
+{{ include_file('bs.cpp') }}
+```
+
+```txt
+{{ include_file('bs.txt') }}
+```
+
 #### Notes
 
 - Time Complexity: $O(m \log n)$ where m is number of rows and n is number of columns in matrix.
 - Auxiliary Space:  $O(\log n)$, as implicit stack is created due to recursion.
+- $m$ - no of columns of matrix
+- $n$ - no of rows of matrix
 
-### Linear Search only on some rows.
+### Linear Search only on some rows
 
 The above solution can be optimized further. Instead of doing binary search in
 every row, we first check whether the row has more 1s than max so far. If the
@@ -54,7 +78,17 @@ row has more 1s, then only count 1s in the row. Also, to count 1s in a row, we
 don't do binary search in complete row, we do search in before the index of last
 max.
 
+```cpp
+{{ include_file('bs-o.cpp') }}
+```
+
+```txt
+{{ include_file('bs-o.txt') }}
+```
+
 #### Notes
 
 - Time Complexity: $O(m+n)$ where m is number of rows and n is number of columns in matrix.
 - Auxiliary Space:  $O(1)$, as implicit stack is created due to recursion.
+- $m$ - no of columns of matrix
+- $n$ - no of rows of matrix

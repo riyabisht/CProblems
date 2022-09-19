@@ -1,42 +1,27 @@
-// CPP program to find the row
-// with maximum number of 1s
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-#define R 4
-
-#define C 4
-
-// Function that returns index of row
-// with maximum number of 1s.
-int rowWithMax1s(bool mat[R][C]) {
-  // code here
+int rowWithMax1s(vector<vector<bool>> mat) {
   int rowIndex = -1;
   int maxCount = 0;
-
-  for (int i = 0; i < R; i++) {
+  for (int i = 0; i < mat.size(); i++) {
     int count = 0;
-    for (int j = 0; j < C; j++) {
-      if (mat[i][j] == 1) {
-        count++;
-      }
+    for (int j = 0; j < mat[i].size(); j++) {
+      if (mat[i][j] == 1) count++;
     }
     if (count > maxCount) {
       maxCount = count;
       rowIndex = i;
     }
   }
-
   return rowIndex;
 }
 
-// Driver Code
 int main() {
-  bool mat[R][C] = {{0, 0, 0, 1}, {0, 1, 1, 1}, {1, 1, 1, 1}, {0, 0, 0, 0}};
-
-  cout << "Index of row with maximum 1s is " << rowWithMax1s(mat);
-
+  vector<vector<bool>> mat = {
+      {0, 0, 0, 1}, {0, 1, 1, 1}, {1, 1, 1, 1}, {0, 0, 0, 0}};
+  cout << rowWithMax1s(mat);
   return 0;
 }
