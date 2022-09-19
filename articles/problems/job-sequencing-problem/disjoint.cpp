@@ -23,7 +23,8 @@ struct DisjointSet {
 
 int printJobScheduling(vector<Job> arr) {
   int n = arr.size();
-  sort(arr.begin(), arr.end(), [](const Job& a, const Job& b) { return a.profit > b.profit; });
+  sort(arr.begin(), arr.end(),
+      [](const Job& a, const Job& b) { return a.profit > b.profit; });
 
   int maxDeadline = INT_MAX;
   for (auto i : arr) maxDeadline = max(maxDeadline, i.deadLine);
@@ -39,12 +40,7 @@ int printJobScheduling(vector<Job> arr) {
 }
 
 int main() {
-  vector<Job> arr = {
-      {'a', 2, 100},
-      {'b', 1, 19},
-      {'c', 2, 27},
-      {'d', 1, 25},
-      {'e', 3, 15}};
+  vector<Job> arr = { {'a', 2, 100}, {'b', 1, 19}, {'c', 2, 27}, {'d', 1, 25}, {'e', 3, 15}};
   printJobScheduling(arr);
   return 0;
 }

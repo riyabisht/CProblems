@@ -28,18 +28,12 @@ void printJobScheduling(vector<Job> arr) {
   }
 
   sort(result.begin(), result.end(), [&](Job a, Job b) { return a.dead < b.dead; });
-  for (int i = 0; i < result.size(); i++)
-    cout << result[i].id << ' ';
+  for (int i = 0; i < result.size(); i++) cout << result[i].id << ' ';
   cout << endl;
 }
 
 int main() {
-  vector<Job> arr = {
-      {'a', 2, 100},
-      {'b', 1, 19},
-      {'c', 2, 27},
-      {'d', 1, 25},
-      {'e', 3, 15}};
+  vector<Job> arr = {{'a', 2, 100}, {'b', 1, 19}, {'c', 2, 27}, {'d', 1, 25}, {'e', 3, 15}};
   printJobScheduling(arr);
   return 0;
 }

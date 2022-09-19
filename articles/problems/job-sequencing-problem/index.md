@@ -16,9 +16,7 @@ tags:
 
 ### Examples
 
-#### Input
-
-Four Jobs with following deadlines and profits
+- Input: Four Jobs with following deadlines and profits
 
 ```txt
 JobID  Deadline  Profit
@@ -28,13 +26,13 @@ c         1        40
 d         1        30
 ```
 
-#### Output
+- Output
 
-Following is maximum profit sequence of jobs: c, a
+```txt
+c, a
+```
 
-#### Input
-
-Five Jobs with following deadlines and profits
+- Input: Five Jobs with following deadlines and profits
 
 ```txt
 JobID   Deadline  Profit
@@ -45,19 +43,35 @@ d          1       25
 e          3       15
 ```
 
-#### Output
+- Output
 
-Following is maximum profit sequence of jobs: c, a, e
+```txt
+c, a, e
+```
 
 ## Solutions
 
 ### Naive Approach
 
-To solve the problem follow the below idea:
+- Generate all subsets of a given set of jobs
+- and check individual subsets for the feasibility of jobs in that subset.
+- Keep track of maximum profit among all feasible subsets.
 
-Generate all subsets of a given set of jobs and check individual subsets for the
-feasibility of jobs in that subset. Keep track of maximum profit among all
-feasible subsets.
+```cpp
+{{ include_file('naive.cpp') }}
+```
+
+```txt
+{{ include_file('naive.txt') }}
+```
+
+#### Notes
+
+- Time Complexity: $O(2^n)$
+- Auxiliary Space: $O(n)$
+- $n$ - no of jobs
+
+### Greedy approach
 
 Greedy approach for job sequencing problem: Greedily choose the jobs with
 maximum profit first, by sorting the jobs in decreasing order of their profit.
@@ -75,11 +89,11 @@ Follow the given steps to solve the problem:
 Below is the implementation of the above approach:
 
 ```cpp
-{% include 'problems/job-sequencing-problem/naive.cpp' %}
+{{ include_file('greedy.cpp') }}
 ```
 
-```cpp
-{% include 'problems/job-sequencing-problem/naive.txt' %}
+```txt
+{{ include_file('greedy.txt') }}
 ```
 
 #### Notes
@@ -88,7 +102,7 @@ Below is the implementation of the above approach:
 - Auxiliary Space: $O(n)$
 - $n$ - no of jobs
 
-### Job sequencing problem using Priority-Queue (Max-Heap)
+### Priority-Queue (Max-Heap)
 
 - Sort the jobs in the increasing order of their deadlines and
 - then calculate the available slots between every two consecutive deadlines
@@ -110,11 +124,11 @@ Follow the given steps to solve the problem:
 Below is the implementation of the above approach:
 
 ```cpp
-{% include 'problems/job-sequencing-problem/pq.cpp' %}
+{{ include_file('pq.cpp') }}
 ```
 
-```cpp
-{% include 'problems/job-sequencing-problem/pq.txt' %}
+```txt
+{{ include_file('pq.txt') }}
 ```
 
 #### Notes
@@ -122,3 +136,11 @@ Below is the implementation of the above approach:
 - Time Complexity: $O(n \log n)$
 - Auxiliary Space: $O(n)$
 - $n$ - number of jobs
+
+## References and External Links
+
+- <https://en.wikipedia.org/wiki/Job-shop_scheduling>
+- <https://en.wikipedia.org/wiki/Interval_scheduling>
+- <https://www.geeksforgeeks.org/job-sequencing-problem/>
+- <https://practice.geeksforgeeks.org/problems/job-sequencing-problem/0>
+- <https://www.techiedelight.com/job-sequencing-problem-deadlines/>
