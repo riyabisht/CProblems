@@ -20,17 +20,13 @@ public:
   // longest Path in DAG
   void longestPath(int vertex, int source) {
     // find topological order
-    for (int i = 0; i < vertex; i++) {
-      topological_order(i);
-    }
+    for (int i = 0; i < vertex; i++) topological_order(i);
 
-    //reinitialise 
-    for (int i = 0; i < visited.size(); i++)
-      visited[i] = INT_MIN;
+    // reinitialize
+    for (int i = 0; i < visited.size(); i++) visited[i] = INT_MIN;
     visited[source] = 0;
 
     while (!st.empty()) {
-
       int u = st.top();
       st.pop();
       if (visited[u] != INT_MIN) {
@@ -41,9 +37,8 @@ public:
         }
       }
     }
-    
     for (auto i : visited) {
-      (i == INT_MIN) ? cout << "INF" : cout << i << " ";
+      (i == INT_MIN) ? cout << "INF " : cout << i << " ";
     }
   }
 
@@ -59,9 +54,7 @@ public:
   }
 
   // add edge
-  void addEdge(int u, int v, int w) {
-    adj[u].push_back({v, w});
-  }
+  void addEdge(int u, int v, int w) { adj[u].push_back({v, w}); }
 
   // print topological order
   void printtopo() {
@@ -86,20 +79,22 @@ public:
 };
 
 int main() {
-
-  int vertex = 0, edges = 0, source = 0;
-  cout << "vertex edges source" << endl;
-  cin >> vertex >> edges >> source;
-
+  int vertex = 6;
+  int source = 1;
+  vector<vector<int>> edges = {
+      {0, 1, 5},
+      {0, 2, 3},
+      {1, 2, 2},
+      {1, 3, 6},
+      {2, 3, 7},
+      {2, 4, 4},
+      {2, 5, 2},
+      {3, 4, -1},
+      {3, 5, 1},
+      {4, 5, -2}};
   Graph g(vertex);
-
-  for (int i = 1; i <= edges; i++) {
-    int u, v, weight;
-    cin >> u >> v >> weight;
-    g.addEdge(u, v, weight);
-  }
-
+  for (auto edge : edges)
+    g.addEdge(edge[0], edge[1], edge[2]);
   g.longestPath(vertex, source);
-
   return 0;
 }
