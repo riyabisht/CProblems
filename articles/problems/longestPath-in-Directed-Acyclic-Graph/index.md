@@ -34,11 +34,11 @@ Following are longest distances from source vertex 1
 Below is the implementation of the above approach:
 
 ```cpp
-{{ include_file('longest_path_DAG.cpp') }}
+{{ include_file('topological_sort.cpp') }}
 ```
 
 ```txt
-{{ include_file('longest_path_DAG_in.txt') }}
+{{ include_file('topological_sort.txt') }}
 ```
 
 #### Notes
