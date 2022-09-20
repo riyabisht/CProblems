@@ -12,7 +12,7 @@ tags:
 - Given weighted Directed Acyclic Graph (DAG) and a source vertex `s` in it.
 - find the longest distance from `s` to all other vertices in the given graph.
 
-## Example
+### Examples
 
 ![img](img/LongestPath-DAG.png)
 
